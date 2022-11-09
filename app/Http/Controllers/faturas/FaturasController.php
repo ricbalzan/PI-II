@@ -180,7 +180,7 @@ class FaturasController extends Controller
         return redirect()->route('faturas.listar');
     }
 
-    public function gerarTxtFaturas()
+    public function gerarTxtFaturas()                   //GERAR O TXT DAS FATURAS
     {
 
         $dados = Faturas::with('user')->whereNull('deleted_at')->get();
@@ -200,6 +200,8 @@ class FaturasController extends Controller
         return response()->download(storage_path() . "/app/txt-faturas/" .  $name . '.txt');
     }
 
+   
+   
     public function gerarXml()
     {
         $fat = Faturas::whereNull('deleted_at')->pluck('mes')->toArray();
@@ -271,20 +273,20 @@ class FaturasController extends Controller
 
         if ($request->isMethod("POST")) {
 
-            $xmlString = file_get_contents(storage_path() . "/app/xmls/" . $name);
-            $xmlObject = simplexml_load_string($xmlString);
+            $xmlString = file_get_contents(storage_path() . "/app/xmls/" . $name);  //salva o xml na pasta ->storage/app/xmls
+            $xmlObject = simplexml_load_string($xmlString);                         //Interpreta uma string XML e a transforma em um objeto
 
-            $json = json_encode($xmlObject);
-            $phpDataArray = json_decode($json, true);
+            $json = json_encode($xmlObject);                                        //transformar valores do objeto para o formato JSON
+            $phpDataArray = json_decode($json, true);                               //recebe como entrada uma string codificada no formato JSON e a converte para uma variável PHP.
 
-            if (count($phpDataArray['notas']) > 0) {
+            if (count($phpDataArray['notas']) > 0) {                                //procura dentro do arquivo se existe pelo menos uma nota
 
-                $dataArray = array();
+                $dataArray = array();                                               //guardar informações de modo ordenado, ou seja, para cada linha, uma informação                                      
 
                 foreach ($phpDataArray['notas'] as $index => $data) {
                     // foreach ($fats as $fat) {
                     // if ($fat->mes != $data['mes']) {
-                    $dataArray[] = [                                            //porcura os itens abaixo dentro do arquivo xml
+                    $dataArray[] = [                                            //porcura os valores dentro das variaveis e estancia
                         "numero" => $data['numero'],
                         "data_insercao" => $data['data'],
                         "mes" => $data['mes'],
@@ -300,7 +302,7 @@ class FaturasController extends Controller
                 }
             }
 
-            Faturas::insert($dataArray);
+            Faturas::insert($dataArray);                                    // grava os valores das variaveis
 
             Session::flash('success', "Fatura importada com sucesso !");
             return redirect()->route('faturas.listar');
