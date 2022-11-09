@@ -252,6 +252,9 @@ class FaturasController extends Controller
         }
     }
 
+
+    //METODO PARA IMPORTAÇÃO DO ARQUIVO XML
+
     public function file(\Illuminate\Http\Request $request)
     {
         $data = $request->all();
@@ -281,7 +284,7 @@ class FaturasController extends Controller
                 foreach ($phpDataArray['notas'] as $index => $data) {
                     // foreach ($fats as $fat) {
                     // if ($fat->mes != $data['mes']) {
-                    $dataArray[] = [
+                    $dataArray[] = [                                            //porcura os itens abaixo dentro do arquivo xml
                         "numero" => $data['numero'],
                         "data_insercao" => $data['data'],
                         "mes" => $data['mes'],
