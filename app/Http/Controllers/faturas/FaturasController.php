@@ -186,7 +186,7 @@ class FaturasController extends Controller
         $dados = Faturas::with('user')->whereNull('deleted_at')->get();
         $string = "";
         // dd(date('n'));
-        foreach ($dados as $dado) {
+        foreach ($dados as $dado) {                                     //faz um foreach e seta as variaveis
             if ($dado->mes == date('n') && $dado->user->num_func != '') {
                 $id = str_pad($dado->user->id, 4, " ", STR_PAD_RIGHT);
                 $valor = str_pad($dado->valor, 10, "0", STR_PAD_LEFT);
@@ -196,8 +196,8 @@ class FaturasController extends Controller
 
         $name = date('YmdH', strtotime(now()));
 
-        Storage::disk('local')->put("txt-faturas/" . date('YmdH', strtotime(now())) . '.txt',   $string);
-        return response()->download(storage_path() . "/app/txt-faturas/" .  $name . '.txt');
+        Storage::disk('local')->put("txt-faturas/" . date('YmdH', strtotime(now())) . '.txt',   $string);  //Grava na pasta //grava na pasta app/txt-faturas o arquivo como o $nome(data e hora).txt
+        return response()->download(storage_path() . "/app/txt-faturas/" .  $name . '.txt');               //faz o download do arquivo na maquina.
     }
 
    
@@ -304,8 +304,8 @@ class FaturasController extends Controller
 
             Faturas::insert($dataArray);                                    // grava os valores das variaveis
 
-            Session::flash('success', "Fatura importada com sucesso !");
-            return redirect()->route('faturas.listar');
+            Session::flash('success', "Fatura importada com sucesso !");   // Mensagem de sucesso
+            return redirect()->route('faturas.listar');                    // retorna para a pagina de listar as faturas
             // return back()->with('success', 'Data saved successfully!');
         }
     }
