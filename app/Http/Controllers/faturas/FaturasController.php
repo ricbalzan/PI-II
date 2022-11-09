@@ -281,7 +281,6 @@ class FaturasController extends Controller
                 foreach ($phpDataArray['notas'] as $index => $data) {
                     // foreach ($fats as $fat) {
                     // if ($fat->mes != $data['mes']) {
-                    //teste    
                     $dataArray[] = [
                         "numero" => $data['numero'],
                         "data_insercao" => $data['data'],
