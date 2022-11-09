@@ -22,7 +22,7 @@
                                 <input type="text" class="form-control" id="contrato" name="contrato" value="{{$id}}" readonly>                           
                             </div>
                             <div class="col-sm-6">
-                                <label for="nome">{{ __('Nome Cliente')}}</label>
+                                <label for="nome">{{ __('Usuário')}}</label>
                                  <select class="form-control nome" id="nome" name="nome" onchange="buscaNome();">
                                     <option value="" selected>Selecione</option>
                                     @foreach($nomes as $nome)

@@ -32,7 +32,7 @@
                                 {{-- <input type="text" class="form-control" id="numero" name="numero" value="">                            --}}
                             </div>
                             <div class="col-sm-5">
-                                <label for="num_serie">{{ __('Número Série')}}</label>
+                                <label for="num_serie">{{ __('Número de Série')}}</label>
                                 <input type="text" class="form-control" id="num_serie" name="num_serie" value="">
                             </div>
                         </div>
@@ -42,7 +42,7 @@
                                 <input type="number" class="form-control" id="estoque" name="estoque" value="">
                             </div>
                             <div class="col-sm-5">
-                                <label for="dtentrega">{{ __('Data Entrega')}}</label>
+                                <label for="dtentrega">{{ __('Data de Entrega')}}</label>
                                 <input type="date" class="form-control" id="dtentrega" name="dtentrega" value="" required>
                             </div>
                         </div>
@@ -60,7 +60,7 @@
         <script src="https://igorescobar.github.io/jQuery-Mask-Plugin/js/jquery.mask.min.js"></script>
         <script>
             $(document).ready(function(){
-            $('#sim').mask('000000');
+            $('#sim').mask('00000000000000000000');
             {{-- $('#numero').mask('(00) 0 0000-0000'); --}}
             $('#cpf').mask('000.000.000-00');
             

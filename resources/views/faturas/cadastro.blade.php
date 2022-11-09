@@ -12,7 +12,7 @@
                         <input type="hidden" id="token" name="_token" value="{{ csrf_token() }}" />
                         <div class="form-group row">
                             <div class="col-sm-5">
-                                <label for="numero_fat">{{ __('Número Fatura')}}</label>                           
+                                <label for="numero_fat">{{ __('Número')}}</label>                           
                                 {{-- <input type="text" class="form-control" id="numero_fat" name="numero_fat" value="">                            --}}
                                 <select class="form-control" id="numero" name="numero" required>
                                     <option value="" selected>Selecione</option>
@@ -28,7 +28,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-sm-5">
-                                <label for="mes">{{ __('Mês Fatura')}}</label>                           
+                                <label for="mes">{{ __('Mês da Fatura')}}</label>                           
                                 <select class="form-control" name="mes" id="mes">
                                     @php setLocale(LC_ALL, 'pt-BR') @endphp
                                     <option value="{{date('m')}}" selected>{{strftime('%b')}}</option>

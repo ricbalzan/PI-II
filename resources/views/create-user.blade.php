@@ -154,7 +154,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="numfunc">{{ __('Nº de Funcionário')}}<span class="text-red">*</span></label>
+                                        <label for="numfunc">{{ __('Número do Funcionário')}}<span class="text-red">*</span></label>
                                         <input id="numfunc" type="text" class="form-control @error('numfunc') is-invalid @enderror" name="numfunc" value="{{ old('numfunc') }}" placeholder="Entre com o numfunc">
                                         <div class="help-block with-errors" ></div>
 
