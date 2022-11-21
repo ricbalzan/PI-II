@@ -271,7 +271,7 @@ class FaturasController extends Controller
             // dd($data);
         }
 
-        if ($request->isMethod("POST")) {
+        if ($request->isMethod("POST")) {                                           //verificar se o URI da solicitação recebida corresponde a um determinado padrão
 
             $xmlString = file_get_contents(storage_path() . "/app/xmls/" . $name);  //salva o xml na pasta ->storage/app/xmls
             $xmlObject = simplexml_load_string($xmlString);                         //Interpreta uma string XML e a transforma em um objeto
