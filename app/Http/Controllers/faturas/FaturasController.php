@@ -283,7 +283,7 @@ class FaturasController extends Controller
 
                 $dataArray = array();                                               //guardar informações de modo ordenado, ou seja, para cada linha, uma informação                                      
 
-                foreach ($phpDataArray['notas'] as $index => $data) {
+                foreach ($phpDataArray['notas'] as $index => $data) {               //percorre o array
                     // foreach ($fats as $fat) {
                     // if ($fat->mes != $data['mes']) {
                     $dataArray[] = [                                            //porcura os valores dentro das variaveis e estancia
