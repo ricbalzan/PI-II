@@ -196,7 +196,7 @@ class FaturasController extends Controller
 
         $name = date('YmdH', strtotime(now()));
 
-        Storage::disk('local')->put("txt-faturas/" . date('YmdH', strtotime(now())) . '.txt',   $string);  //Grava na pasta //grava na pasta app/txt-faturas o arquivo como o $nome(data e hora).txt
+        Storage::disk('local')->put("txt-faturas/" . date('YmdH', strtotime(now())) . '.txt',   $string);  //grava na pasta app/txt-faturas o arquivo como o $nome(data e hora).txt
         return response()->download(storage_path() . "/app/txt-faturas/" .  $name . '.txt');               //faz o download do arquivo na maquina.
     }
 
