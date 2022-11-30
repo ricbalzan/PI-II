@@ -21,11 +21,11 @@
                     <a href="{{route('dashboard.dados')}}"><i class="ik ik-bar-chart-2"></i><span>{{ __('Dashboard')}}</span></a>
                 </div>
                 <div class="nav-item {{ ($segment1 == 'consulta-fat' ) ? 'active open' : '' }} has-sub">
-                    <a href="#"><i class="ik ik-clipboard"></i><span>{{ __('Consultar Faturas')}}</span></a>
+                    <a href="#"><i class="ik ik-clipboard"></i><span>{{ __('Faturas')}}</span></a>
                     <div class="submenu-content">
                         <!-- only those have manage_user permission will get access -->
                         {{-- @can('gerencia_usuarios') --}}
-                        <a href="{{url('consulta-fat/listar')}}" class="menu-item {{ ($segment1 == 'consulta-fat') ? 'active' : '' }}">{{ __('Faturas')}}</a>
+                        <a href="{{url('consulta-fat/listar')}}" class="menu-item {{ ($segment1 == 'consulta-fat') ? 'active' : '' }}">{{ __('Consultar Faturas')}}</a>
                         {{-- <a href="{{url('user/create')}}" class="menu-item {{ ($segment1 == 'user' && $segment2 == 'create') ? 'active' : '' }}">{{ __('Adicionar Usuário')}}</a> --}}
                          {{-- @endcan --}}
                          <!-- only those have manage_role permission will get access -->
@@ -39,12 +39,12 @@
                     </div>
                 </div>
                 <div class="nav-item {{ ($segment1 == 'aparelhos' || $segment1 == 'aparelho') ? 'active open' : '' }} has-sub">
-                    <a href="#"><i class="ik ik-smartphone"></i><span>{{ __('Manutenção de Aparelhos')}}</span></a>
+                    <a href="#"><i class="ik ik-smartphone"></i><span>{{ __('Aparelhos')}}</span></a>
                     <div class="submenu-content">
                         <!-- only those have manage_user permission will get access -->
                         @can('gerencia_usuarios')
                         <a href="{{url('aparelhos/listar')}}" class="menu-item {{ ($segment1 == 'aparelhos') ? 'active' : '' }}">{{ __('Cadastrar Aparelhos')}}</a>
-                        <a href="{{url('aparelho/estoque')}}" class="menu-item {{ ($segment1 == 'aparelho' && $segment2 == 'estoque') ? 'active' : '' }}">{{ __('Relatório Estoque')}}</a>
+                        <a href="{{url('aparelho/estoque')}}" class="menu-item {{ ($segment1 == 'aparelho' && $segment2 == 'estoque') ? 'active' : '' }}">{{ __('Consultar Estoque')}}</a>
                          @endcan
                          <!-- only those have manage_role permission will get access -->
                         {{-- @can('gerencia_funcoes')
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                  <div class="nav-item {{ ($segment1 == 'contratos') ? 'active open' : '' }} has-sub">
-                    <a href="#"><i class="ik ik-file-text"></i><span>{{ __('Manutenção Contratos')}}</span></a>
+                    <a href="#"><i class="ik ik-file-text"></i><span>{{ __('Contratos')}}</span></a>
                     <div class="submenu-content">
                         <!-- only those have manage_user permission will get access -->
                         @can('gerencia_usuarios')
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="nav-item {{ ($segment1 == 'faturas') ? 'active open' : '' }} has-sub">
-                    <a href="#"><i class="ik ik-file"></i><span>{{ __('Manutenção Faturas')}}</span></a>
+                    <a href="#"><i class="ik ik-file"></i><span>{{ __('Faturas')}}</span></a>
                     <div class="submenu-content">
                         <!-- only those have manage_user permission will get access -->
                         @can('gerencia_usuarios')
@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 <div class="nav-item {{ ($segment1 == 'numeros') ? 'active open' : '' }} has-sub">
-                    <a href="#"><i class="ik ik-bar-chart"></i><span>{{ __('Manutenção Números')}}</span></a>
+                    <a href="#"><i class="ik ik-bar-chart"></i><span>{{ __('Números')}}</span></a>
                     <div class="submenu-content">
                         <!-- only those have manage_user permission will get access -->
                         @can('gerencia_usuarios')
@@ -111,7 +111,7 @@
                     </div>
                 </div>
                 <div class="nav-item {{ ($segment1 == 'users' || $segment1 == 'roles'||$segment1 == 'permission' ||$segment1 == 'user') ? 'active open' : '' }} has-sub">
-                    <a href="#"><i class="ik ik-users"></i><span>{{ __('Manutenção Usuários')}}</span></a>
+                    <a href="#"><i class="ik ik-users"></i><span>{{ __('Usuários')}}</span></a>
                     <div class="submenu-content">
                         <!-- only those have manage_user permission will get access -->
                         @can('gerencia_usuarios')
