@@ -61,7 +61,7 @@
                     <div class="submenu-content">
                         <!-- only those have manage_user permission will get access -->
                         @can('gerencia_usuarios')
-                        <a href="{{url('contratos/listar')}}" class="menu-item {{ ($segment1 == 'contratos') ? 'active' : '' }}">{{ __('Novo Contrato')}}</a>
+                        <a href="{{url('contratos/listar')}}" class="menu-item {{ ($segment1 == 'contratos') ? 'active' : '' }}">{{ __('Emitir Contratos')}}</a>
                         {{-- <a href="{{url('user/create')}}" class="menu-item {{ ($segment1 == 'user' && $segment2 == 'create') ? 'active' : '' }}">{{ __('Adicionar Usuário')}}</a> --}}
                          @endcan
                          <!-- only those have manage_role permission will get access -->
@@ -115,7 +115,7 @@
                     <div class="submenu-content">
                         <!-- only those have manage_user permission will get access -->
                         @can('gerencia_usuarios')
-                        <a href="{{url('users')}}" class="menu-item {{ ($segment1 == 'users') ? 'active' : '' }}">{{ __('Usuários')}}</a>
+                        <a href="{{url('users')}}" class="menu-item {{ ($segment1 == 'users') ? 'active' : '' }}">{{ __('Listar Usuários')}}</a>
                         <a href="{{url('user/create')}}" class="menu-item {{ ($segment1 == 'user' && $segment2 == 'create') ? 'active' : '' }}">{{ __('Adicionar Usuário')}}</a>
                          @endcan
                          <!-- only those have manage_role permission will get access -->

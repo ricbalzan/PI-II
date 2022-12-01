@@ -187,14 +187,14 @@ class FaturasController extends Controller
         $string = "";
         // dd(date('n'));
         foreach ($dados as $dado) {                                     //faz um foreach e seta as variaveis
-            if ($dado->mes == date('n') && $dado->user->num_func != '') {
-                $id = str_pad($dado->user->id, 4, " ", STR_PAD_RIGHT);
-                $valor = str_pad($dado->valor, 10, "0", STR_PAD_LEFT);
+            if ($dado->mes == date('n') && $dado->user->num_func != '') {  //if pra gerar somente do mes atual
+                $id = str_pad($dado->user->id, 4, " ", STR_PAD_RIGHT);  //STR_PAD_RIGHT retoran a string preenchoda a esquerda com 4 digitos
+                $valor = str_pad($dado->valor, 10, "0", STR_PAD_LEFT);  //STR_PAD_LEFT retoran a string preenchoda a direita com 10 digitos
                 $string = $string . "1  $id 414$valor \n";
             }
         }
 
-        $name = date('YmdH', strtotime(now()));
+        $name = date('YmdH', strtotime(now()));  //nome do arquivo com a data e hora atual
 
         Storage::disk('local')->put("txt-faturas/" . date('YmdH', strtotime(now())) . '.txt',   $string);  //grava na pasta app/txt-faturas o arquivo como o $nome(data e hora).txt
         return response()->download(storage_path() . "/app/txt-faturas/" .  $name . '.txt');               //faz o download do arquivo na maquina.
@@ -276,10 +276,10 @@ class FaturasController extends Controller
             $xmlString = file_get_contents(storage_path() . "/app/xmls/" . $name);  //salva o xml na pasta ->storage/app/xmls
             $xmlObject = simplexml_load_string($xmlString);                         //Interpreta uma string XML e a transforma em um objeto
 
-            $json = json_encode($xmlObject);                                        //transformar valores do objeto para o formato JSON
+            $json = json_encode($xmlObject);                                        //codifica os valores do objeto para o formato JSON
             $phpDataArray = json_decode($json, true);                               //recebe como entrada uma string codificada no formato JSON e a converte para uma variável PHP.
 
-            if (count($phpDataArray['notas']) > 0) {                                //procura dentro do arquivo se existe pelo menos uma nota
+            if (count($phpDataArray['notas']) > 0) {                                //procura dentro do arquivo se existe pelo menos um valor, caso sim entra no if
 
                 $dataArray = array();                                               //guardar informações de modo ordenado, ou seja, para cada linha, uma informação                                      
 
